@@ -5,6 +5,7 @@ import {Pressable, View} from 'react-native';
 import {AddPostIcon} from '../../assets/icons';
 import TabSelector from '../../components/TabSelector';
 import {useStyles, useTheme} from '../../hooks';
+import AllGroupListComponent from '../../modules/Group/all/AllGroup';
 import {MainStackNavigationProps} from '../../types';
 import {SelectedTab, TABS_TIP_LIST} from '../../types/tab';
 import {ChannelsFeedComponent} from '../ChannelsFeed/ChannelsFeedComponent';
@@ -38,9 +39,14 @@ export const Tips: React.FC = () => {
         <>
           <ChannelsFeedComponent></ChannelsFeedComponent>
         </>
+      ) : selectedTab == SelectedTab.ALL_GROUP ? (
+        <>
+          <AllGroupListComponent></AllGroupListComponent>
+        </>
       ) : (
         <></>
       )}
+
       <Pressable
         style={styles.createPostButton}
         onPress={() => navigation.navigate('MainStack', {screen: 'CreateForm'})}

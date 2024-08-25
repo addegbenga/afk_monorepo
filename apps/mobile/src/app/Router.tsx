@@ -42,6 +42,8 @@ import {
   RootStackParams,
 } from '../types';
 import {retrievePublicKey} from '../utils/storage';
+import GroupChat from '../modules/Group/message/GroupMessage';
+import GroupChatDetail from '../modules/Group/groupDetail/GroupChatDetail';
 
 const DrawerStack = createDrawerNavigator<MainStackParams>();
 const RootStack = createNativeStackNavigator<RootStackParams>();
@@ -254,6 +256,8 @@ const MainNavigator: React.FC = () => {
         <DrawerStack.Screen name="Feed" component={Feed} />
       )}
       <DrawerStack.Screen name="Profile" component={Profile} />
+      <DrawerStack.Screen name="GroupChat" component={GroupChat} />
+      <DrawerStack.Screen name="GroupChatDetail" component={GroupChatDetail} />
       <DrawerStack.Screen name="EditProfile" component={EditProfile} />
       <DrawerStack.Screen name="CreatePost" component={CreatePost} />
       <DrawerStack.Screen name="PostDetail" component={PostDetail} />
