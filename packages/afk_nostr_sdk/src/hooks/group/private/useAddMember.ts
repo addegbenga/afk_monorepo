@@ -2,6 +2,10 @@ import {NDKEvent, NDKKind} from '@nostr-dev-kit/ndk';
 import {useMutation} from '@tanstack/react-query';
 
 import {useNostrContext} from '../../../context/NostrContext';
+<<<<<<< HEAD
+=======
+import {useAuth} from '../../../store';
+>>>>>>> main
 
 // TODO
 export const useAddMember = () => {
