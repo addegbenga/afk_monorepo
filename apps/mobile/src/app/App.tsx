@@ -4,16 +4,14 @@ import {starknetChainId, useAccount} from '@starknet-react/core';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import {useCallback, useEffect, useState} from 'react';
-import {View} from 'react-native';
-
+import {View, Platform} from 'react-native';
+import { useNavigationContainerRef } from '@react-navigation/native';
 import {useTips} from '../hooks';
 import {useDialog, useToast} from '../hooks/modals';
 import {Router} from './Router';
-import { CashuProvider } from '../providers/CashuProvider';
+import { initGoogleAnalytics } from '../utils/analytics';
 
 SplashScreen.preventAutoHideAsync();
-
-
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -93,10 +91,8 @@ export default function App() {
   if (!appIsReady) return null;
 
   return (
-    <CashuProvider>
-      <View style={{flex: 1, flexDirection: 'row'}} onLayout={onLayoutRootView}>
-        <Router />
-      </View>
-    </CashuProvider>
+    <View style={{flex: 1, flexDirection: 'row'}} onLayout={onLayoutRootView}>
+      <Router />
+    </View>
   );
 }
