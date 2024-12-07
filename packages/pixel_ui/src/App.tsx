@@ -11,7 +11,7 @@ import PixelSelector from './footer/PixelSelector.js';
 import TabsFooter from './footer/TabsFooter.js';
 import TabPanel from './tabs/TabPanel.js';
 import { usePreventZoom, useLockScroll } from './utils/Window.js';
-import { backendUrl, wsUrl, devnetMode, provider, CHAIN_ID, allowedMethods, expiry, metaData, dappKey } from './utils/Consts.js';
+import { backendUrl, wsUrl, devnetMode, provider, CHAIN_ID, allowedMethods, expiry, metaData, dappKey, getProvider } from './utils/Consts.js';
 import canvasConfig from './configs/canvas.config.json';
 import { fetchWrapper, getTodaysStartTime } from './services/apiService.js';
 import art_peace_abi from './contracts/art_peace.abi.json';
@@ -784,12 +784,13 @@ const startSession = async () => {
   const sessionAccount = await buildSessionAccount({
     accountSessionSignature: stark.formatSignature(accountSessionSignature),
     sessionRequest: sessionRequest,
-    provider: provider,
+    // provider: provider,
+    provider: getProvider(chainId),
     chainId: chainId,
     address: address,
     dappKey: dappKey,
-    argentSessionServiceBaseUrl:
-      process.env.REACT_APP_ARGENT_SESSION_SERVICE_BASE_URL
+    // argentSessionServiceBaseUrl:
+    //   process.env.REACT_APP_ARGENT_SESSION_SERVICE_BASE_URL
   });
   if (!sessionAccount) {
     console.error('Session account failed');
