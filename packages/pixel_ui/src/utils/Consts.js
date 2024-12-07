@@ -58,7 +58,7 @@ export const getProvider = (chainId) => {
 }
 
 export const provider = new RpcProvider({
-  nodeUrl: process.env.PROVIDER_URL,
+  nodeUrl: process.env.NEXT_PUBLIC_PROVIDER_URL,
   chainId: process.env.STARKNET_CHAIN_ID ?? constants.StarknetChainId.SN_SEPOLIA
 });
 
